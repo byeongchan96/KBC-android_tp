@@ -59,6 +59,7 @@
         android:id="@+id/main_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="D+1"
         android:textStyle="bold"
         android:textSize="24sp"
@@ -78,33 +79,42 @@
     <!-- TabLayout for navigation between pages -->
 
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tablayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/yellow400"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@color/yellow200"
-        app:tabSelectedTextColor="@color/gray100"
-        app:tabTextColor="@color/black"
-        android:textAlignment="center"
-        android:layout_marginBottom="16dp">
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Todo" />
+            android:background="@color/yellow400"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/yellow200"
+            app:tabSelectedTextColor="@color/gray100"
+            app:tabTextColor="@color/black"
+            android:layout_marginBottom="16dp" >
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Memo" />
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Todo" />
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Menu3" />
-    </com.google.android.material.tabs.TabLayout>
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Memo" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Menu3" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+
+
+
+
+
+<!--    </LinearLayout>-->
+
 
     <!-- ViewPager2 for swiping between pages -->
 
@@ -116,7 +126,7 @@
         android:layout_weight="1"
         android:orientation="horizontal" />
 
-    <!-- Floating Action Button -->
+<!--     Floating Action Button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
         android:layout_width="wrap_content"

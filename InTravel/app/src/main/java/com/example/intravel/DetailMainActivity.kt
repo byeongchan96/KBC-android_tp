@@ -1,9 +1,12 @@
 package com.example.intravel
 
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -14,6 +17,7 @@ import com.example.intravel.adapter.DetaiTabFragmentAdapter
 import com.example.intravel.databinding.ActivitySubmainBinding
 
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlin.reflect.typeOf
 
 
 class DetailMainActivity : AppCompatActivity() {
@@ -23,7 +27,6 @@ class DetailMainActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-
 
 
     // View binding setup
@@ -42,13 +45,14 @@ class DetailMainActivity : AppCompatActivity() {
 
     val tabElement: List<String> = mutableListOf("To-Do", "Memo", "Menu")
 
-
     try {
       TabLayoutMediator(binding.tablayout, binding.viewpager2) { tab, position ->
         val textView = TextView(this@DetailMainActivity)
         textView.text = tabElement[position]
+        textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
+        textView.setTypeface(textView.typeface, Typeface.BOLD)
         tab.customView = textView
-//        tab.text. = View.TEXT_ALIGNMENT_CENTER
+        tab.id = View.TEXT_ALIGNMENT_CENTER
       }.attach()
     } catch (e: Exception) {
       Log.e("TabLayoutError", "Error in TabLayoutMediator: ${e.message}")
