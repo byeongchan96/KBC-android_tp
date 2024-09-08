@@ -26,6 +26,7 @@ class TestActivity : AppCompatActivity() {
             insets
         }
 
+//        var a = parseInt("2024-09-13") 이 형식으로는 계산 안됨
         var a = parseInt("20240913")
         var b = parseInt("20240911")
         var result = b-a
@@ -44,13 +45,8 @@ class TestActivity : AppCompatActivity() {
             result = -result
         }
 
-        var dday = intent.getStringExtra("dday")
-        var tTitle = intent.getStringExtra("tTitle")
-        var tId = intent.getStringExtra("tId")
-        var test = "tId:$tId, tTitle:$tTitle, dday:$dday"
 
-
-        binding.txtView.text = test
+        binding.txtView.text = result.toString()
 
 
 
