@@ -34,7 +34,7 @@ public class TodoService {
   }
 
   public void deleteByTodoId(Long todoId) {
-    todoRepository.deleteByTodoId(todoId);
+    todoRepository.deleteById(todoId);
   }
 
 //  public List<TodoEntity> listUncomp(Long travelId) {
