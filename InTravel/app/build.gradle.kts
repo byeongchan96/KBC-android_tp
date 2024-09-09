@@ -6,6 +6,7 @@ plugins {
 android {
   namespace = "com.example.intravel"
   compileSdk = 34
+  buildFeatures.viewBinding=true
 
   defaultConfig {
     applicationId = "com.example.intravel"
@@ -30,9 +31,7 @@ android {
   kotlinOptions {
     jvmTarget = "1.8"
   }
-  buildFeatures {
-    viewBinding = true
-  }
+
 }
 
 dependencies {
@@ -48,7 +47,6 @@ dependencies {
 
   implementation("com.squareup.retrofit2:retrofit:2.9.0")
   implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-  implementation ("com.google.android.material:material:1.9.0")
   implementation ("androidx.viewpager2:viewpager2:1.0.0'")
   implementation ("androidx.fragment:fragment:1.5.0")
 

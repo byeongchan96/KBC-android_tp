@@ -114,29 +114,35 @@
 
 
 <!--    </LinearLayout>-->
-
-
-    <!-- ViewPager2 for swiping between pages -->
-
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewpager2"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal" />
+        android:layout_height="match_parent">
 
-<!--     Floating Action Button -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_add"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:contentDescription="Add"
-        app:srcCompat="@drawable/baseline_add_24"
-        app:backgroundTint="@color/yellow400"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
 
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
+
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:contentDescription="Add"
+            android:importantForAccessibility="yes"
+            app:srcCompat="@drawable/baseline_add_24"
+            app:backgroundTint="@color/yellow400" />
+
+
+    </FrameLayout>
 
 </LinearLayout>

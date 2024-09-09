@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.setPadding
 import com.example.intravel.adapter.DetaiTabFragmentAdapter
 
 
@@ -52,7 +50,7 @@ class DetailMainActivity : AppCompatActivity() {
         textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
         textView.setTypeface(textView.typeface, Typeface.BOLD)
         tab.customView = textView
-        tab.id = View.TEXT_ALIGNMENT_CENTER
+        textView.textAlignment = View.TEXT_ALIGNMENT_CENTER
       }.attach()
     } catch (e: Exception) {
       Log.e("TabLayoutError", "Error in TabLayoutMediator: ${e.message}")
