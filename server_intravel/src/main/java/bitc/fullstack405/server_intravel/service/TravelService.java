@@ -83,13 +83,14 @@ public class TravelService {
         todoRepository.deleteByTravId(travId);
         memoRepository.deleteByTravId(travId);
 
-//        삭제할 pay 테이블의 moneyId 구하기
-        List<MoneyEntity> moneyEntityList = moneyRepository.findByTravId(travId);
+////        삭제할 pay 테이블의 moneyId 구하기
+//        List<MoneyEntity> moneyEntityList = moneyRepository.findByTravId(travId);
+//
+////        moneyId는 여러개 있으므로 for 반복문을 통해 List 전체에 담긴 moneyId를 통해 pay 테이블의 데이터를 삭제함
+//        for (MoneyEntity moneyEntity : moneyEntityList) {
+//            payRepository.deleteByMoneyId(moneyEntity.getId());
+//        }
 
-//        moneyId는 여러개 있으므로 for 반복문을 통해 List 전체에 담긴 moneyId를 통해 pay 테이블의 데이터를 삭제함
-        for (MoneyEntity moneyEntity : moneyEntityList) {
-            payRepository.deleteByMoneyId(moneyEntity.getMoneyId());
-        }
 
         moneyRepository.deleteByTravId(travId);
         travelRepository.deleteById(travId);
