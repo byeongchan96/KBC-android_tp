@@ -21,7 +21,7 @@ import com.example.intravel.databinding.ItemTodolistBinding
 import retrofit2.Call
 import retrofit2.Response
 
-class TodoListAdapter(var todoList: MutableList<TodoList>):RecyclerView.Adapter<TodoListAdapter.TodoHolder>() {
+class   TodoListAdapter(var todoList: MutableList<TodoList>):RecyclerView.Adapter<TodoListAdapter.TodoHolder>() {
 
     class TodoHolder(val binding: ItemTodolistBinding):RecyclerView.ViewHolder(binding.root)
 

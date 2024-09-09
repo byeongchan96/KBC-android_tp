@@ -182,6 +182,14 @@ class MainActivity_memowrite : AppCompatActivity() {
             finish()
         }
 
+        // 뒤로 가기 버튼 클릭
+        binding.btnBack.setOnClickListener {
+            val intent = Intent(this, DetailMainActivity::class.java)
+            startActivity(intent)
+            overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+            finish()
+        }
+
         binding.btnMemoDelete.setOnClickListener {
             AlertDialog.Builder(this).apply {
                 setTitle("삭제")

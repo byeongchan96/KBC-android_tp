@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="68dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/edittext_border"
         android:ems="10"
@@ -21,6 +21,7 @@
         android:inputType="text"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,6 +40,7 @@
         android:minLines="5"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mTitle" />
 
@@ -46,10 +48,10 @@
         android:id="@+id/btnMemoCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
-        android:text="CANCEL"
         android:background="#FDF79B"
+        android:text="CANCEL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mContent" />
 
@@ -57,10 +59,10 @@
         android:id="@+id/btnMemoOk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:text="OK"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:background="#FBEA04"
+        android:text="OK"
         app:layout_constraintEnd_toStartOf="@+id/btnMemoCancel"
         app:layout_constraintTop_toBottomOf="@+id/mContent" />
 
@@ -68,10 +70,10 @@
         android:id="@+id/btnMemoDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:text="DELETE"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
         android:background="#FDF79B"
+        android:text="DELETE"
         android:visibility="invisible"
         app:layout_constraintEnd_toStartOf="@+id/btnMemoOk"
         app:layout_constraintTop_toBottomOf="@+id/mContent" />
@@ -80,13 +82,27 @@
         android:id="@+id/btnMemoDate"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/memo_date_button_description"
         android:scaleType="centerInside"
         android:src="@drawable/calendar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mContent"
-        android:contentDescription="@string/memo_date_button_description"/>
+        app:layout_constraintTop_toBottomOf="@+id/mContent" />
+
+    <!-- Back Button -->
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="Back" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
