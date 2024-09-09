@@ -22,6 +22,7 @@ public class PayService {
         return payRepository.findByMoneyId(moneyId);
     }
 
+    @Transactional
     public PayEntity save(Long moneyId, PayEntity payEntity) {
         MoneyEntity moneyEntity = moneyRepository.findById(moneyId).get();
 
