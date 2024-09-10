@@ -82,6 +82,8 @@ public class TravelService {
     public void delete(Long travId) {
         todoRepository.deleteByTravId(travId);
         memoRepository.deleteByTravId(travId);
+        moneyRepository.deleteByTravId(travId);
+        travelRepository.deleteById(travId);
 
 ////        삭제할 pay 테이블의 moneyId 구하기
 //        List<MoneyEntity> moneyEntityList = moneyRepository.findByTravId(travId);
@@ -90,9 +92,5 @@ public class TravelService {
 //        for (MoneyEntity moneyEntity : moneyEntityList) {
 //            payRepository.deleteByMoneyId(moneyEntity.getId());
 //        }
-
-
-        moneyRepository.deleteByTravId(travId);
-        travelRepository.deleteById(travId);
     }
 }
