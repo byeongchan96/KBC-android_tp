@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FBEA04"
+    android:background="@drawable/item_radius"
     android:layout_marginBottom="10dp"
     >
 
@@ -17,6 +17,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:maxLength="6"
         android:text="title"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"

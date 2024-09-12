@@ -23,6 +23,7 @@ import retrofit2.Response
 
 class   TodoListAdapter(var todoList: MutableList<TodoList>):RecyclerView.Adapter<TodoListAdapter.TodoHolder>() {
 
+
     class TodoHolder(val binding: ItemTodolistBinding):RecyclerView.ViewHolder(binding.root)
 
 //    interface OnItemClickListener{

@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.intravel.adapter.DetaiTabFragmentAdapter
@@ -23,6 +24,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.random.Random
 
 class DetailMainActivity : AppCompatActivity() {
 
@@ -36,13 +38,35 @@ class DetailMainActivity : AppCompatActivity() {
     // View binding 설정
     binding = ActivitySubmainBinding.inflate(layoutInflater)
     setContentView(binding.root)
-
+    //------------------------------------------------------------------------------//
     // 시스템 바 패딩 설정
     ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.tablayout)) { v, insets ->
       val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
       v.setPadding(systemBars.left, systemBars.right, systemBars.top, systemBars.bottom)
       insets
     }
+    //------------------------------------------------------------------------------//
+
+    //  색상 배열
+    val colors = listOf(
+      R.color.yellow100,
+      R.color.purple100,
+      R.color.brown100,
+      R.color.orange100,
+      R.color.pink100,
+      R.color.blue100
+    )
+
+    // 랜덤 색상 선택
+    val randomColor = colors[Random.nextInt(colors.size)]
+    // TabLayout 배경색 설정
+    binding.tablayout.setBackgroundColor(ContextCompat.getColor(this, randomColor))
+    binding.navHeader.setBackgroundColor(ContextCompat.getColor(this, randomColor))
+
+
+
+    //------------------------------------------------------------------------------//
+
 
     // ViewPager2 및 TabLayout 설정
     val viewPager2Adapter = DetaiTabFragmentAdapter(this)
@@ -59,6 +83,7 @@ class DetailMainActivity : AppCompatActivity() {
       }
       tab.customView = textView
     }.attach()
+    //------------------------------------------------------------------------------//
 
     // MainActivity로부터 전달된 데이터 받아오기
     getIntentData()
@@ -67,12 +92,15 @@ class DetailMainActivity : AppCompatActivity() {
     binding.iconLeft.setOnClickListener {
       navigateToMainActivity()
     }
+    //------------------------------------------------------------------------------//
 
     // D-Day 수정 다이얼로그 표시 및 수정 트리거
     binding.iconRight.setOnClickListener {
       showEditDdayDialog()
     }
   }
+
+  //------------------------------------------------------------------------------//
 
   // MainActivity로부터 전달된 데이터를 받아오는 함수
   private fun getIntentData() {
@@ -200,11 +228,15 @@ class DetailMainActivity : AppCompatActivity() {
       }
     })
   }
+  //------------------------------------------------------------------------------//
 
   // MainActivity로 돌아가는 함수
   private fun navigateToMainActivity() {
     val intent = Intent(this, MainActivity::class.java)
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
     startActivity(intent)
-    overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+    finish()  // 현재 액티비티 종료
   }
+
+  //------------------------------------------------------------------------------//
 }

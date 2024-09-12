@@ -9,6 +9,7 @@
     tools:context=".DetailMainActivity">
         <!-- ConstraintLayout for Icon and Title -->
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/nav_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -165,6 +166,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal" />
+
 
 <!--    &lt;!&ndash; Floating Action Button &ndash;&gt;-->
 <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
