@@ -112,7 +112,8 @@ class DetailMainActivity : AppCompatActivity() {
   // MainActivity로 돌아가는 함수
   private fun navigateToMainActivity() {
     val intent = Intent(this, MainActivity::class.java)
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
     startActivity(intent)
-    overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+    finish()  // 현재 액티비티 종료
   }
 }
