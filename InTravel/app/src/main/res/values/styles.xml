@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 전체 캘린더 스타일 -->
+    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+        <!-- 기본 텍스트 색상과 스타일 설정 -->
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/bmdohyeon</item>
+    </style>
+
+    <!-- 날짜(Day)의 텍스트 스타일 설정 -->
+    <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/bmdohyeon</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- 요일(Week)의 텍스트 스타일 설정 -->
+    <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <!-- 연/월을 표시하는 헤더 스타일 설정 -->
+    <style name="CalendarWidgetHeader" parent="android:TextAppearance.DeviceDefault.Large">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/yellow400</item>
+        <item name="android:fontFamily">@font/bmdohyeon</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

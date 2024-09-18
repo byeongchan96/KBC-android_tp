@@ -16,7 +16,6 @@ import com.example.intravel.databinding.ItemMainBinding
 import retrofit2.Call
 import retrofit2.Response
 import java.lang.Integer.parseInt
-import java.text.Format
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -77,19 +76,22 @@ class MainAdapter(var mainList: MutableList<TravelData>):RecyclerView.Adapter<Ma
         mainList.add(data)
         notifyDataSetChanged()
     }
-    
+
     class MainHolder(var binding: ItemMainBinding):RecyclerView.ViewHolder(binding.root) {
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainAdapter.MainHolder {
-        return MainHolder(ItemMainBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        val view = ItemMainBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MainHolder(view)
     }
 
     interface OnItemClickListener{
         fun onItemClick(data: TravelData,dday:String,position: Int)
+        fun onCalendarIconClick(data: TravelData, position: Int)
     }
     var onItemClickListener:OnItemClickListener?=null
+
 
     override fun onBindViewHolder(holder: MainAdapter.MainHolder, position: Int) {
         val data = mainList.get(position)
@@ -232,7 +234,7 @@ class MainAdapter(var mainList: MutableList<TravelData>):RecyclerView.Adapter<Ma
                 }
 
 
-                
+
                 setPositiveButton("확인",object: DialogInterface.OnClickListener{
                     override fun onClick(p0: DialogInterface?, p1: Int) {
                         val d = TravelData( // 수정된 데이터 생성
@@ -330,4 +332,6 @@ class MainAdapter(var mainList: MutableList<TravelData>):RecyclerView.Adapter<Ma
     override fun getItemCount(): Int {
         return mainList.size
     }
+
+
 }
