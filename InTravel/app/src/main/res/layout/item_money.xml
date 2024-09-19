@@ -29,7 +29,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp"
             android:text="카테고리 제목"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:fontFamily="@font/pretendard_semibold"/>
 
         <TextView
             android:id="@+id/m_DefaultMoney"
@@ -39,7 +40,8 @@
             android:layout_marginStart="190dp"
             android:layout_marginTop="10dp"
             android:text="예산 : 100,000,000원"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:fontFamily="@font/pretendard_medium"/>
 
         <TextView
             android:id="@+id/m_Minus"
@@ -50,7 +52,8 @@
             android:layout_marginTop="35dp"
             android:text="지출 : 9,000,000원"
             android:textSize="13sp"
-            android:textColor="#DB0000" />
+            android:textColor="#DB0000"
+            android:fontFamily="@font/pretendard_medium"/>
 
         <TextView
             android:id="@+id/m_Plus"
@@ -61,7 +64,8 @@
             android:layout_marginTop="55dp"
             android:text="입금 : 9,000,000원"
             android:textSize="13sp"
-            android:textColor="#2196F3" />
+            android:textColor="#2196F3"
+            android:fontFamily="@font/pretendard_medium"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnPayAdd"

@@ -24,7 +24,8 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp"
             android:text="메모 제목"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:fontFamily="@font/pretendard_semibold"/>
 
         <TextView
             android:id="@+id/choiceDate"
@@ -34,7 +35,8 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
             android:text="YYYY.MM.DD"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:fontFamily="@font/pretendard_medium"/>
 
     </androidx.cardview.widget.CardView>
 

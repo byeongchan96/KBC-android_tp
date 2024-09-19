@@ -88,16 +88,6 @@ class MainActivity : AppCompatActivity() {
 
     // 데이터 생성
     var mainList = mutableListOf<TravelData>()
-    var ingList = mutableListOf<TravelData>() // db 연결전 테스트용
-    // db 연결 전에는 데이터 분리해서 넣고 사용함, 연결하고 나서는 상관 없을듯 ?
-
-    // db 연결 전 테스트용 데이터 추가
-    // + 버튼 누르면 값 디비에 추가 후 리스폰된 값 받아서 화면에 띄움
-    // Y 진행중, N 완료됨
-//    mainList.add(TravelData(0,"일본 여행",null,"20240914","20240920","동생",'Y'))
-//    mainList.add(TravelData(0,"경주 여행",null,"20240903","20240920","친구",'Y'))
-//    mainList.add(TravelData(0,"전주 여행",null,"20240925","20240930","동생",'N'))
-
 
 
     // 어댑터 생성
@@ -127,7 +117,10 @@ class MainActivity : AppCompatActivity() {
       Client.retrofit.findAll().enqueue(object:retrofit2.Callback<List<TravelData>>{
         override fun onResponse(call: Call<List<TravelData>>, response: Response<List<TravelData>>) {
 //          mainAdapter.mainList.clear()
-          mainAdapter.mainList = response.body() as MutableList<TravelData>
+          val mainItem = response.body() as MutableList<TravelData>
+          val test1 = mainItem.sortedWith(compareBy({it.travComplete == 'Y'}, {it.travId}))
+
+          mainAdapter.mainList = test1.toMutableList()
           mainAdapter.notifyDataSetChanged()
         }
 
