@@ -23,19 +23,13 @@ class CalendarAdapter(
 
   // 색상 리스트 정의
   val colorList = listOf(
-    "red100" to "#E53935",
     "red200" to "#FF7043",
-    "orange100" to "#FB8C00",
     "orange200" to "#FFB300",
-    "yellow100" to "#FDD835",
     "yellow200" to "#F4E242",
-    "green400" to "#43A047",
     "green200" to "#00BFA5",
     "green100" to "#78AA00",
-    "blue100" to "#1E88E5",
     "blue200" to "#42A5F5",
     "purple100" to "#AB47BC",
-    "purple200" to "#8E24AA",
     "brown100" to "#8D6E63",
     "grey300" to "#BDBDBD",
     "grey200" to "#757575",

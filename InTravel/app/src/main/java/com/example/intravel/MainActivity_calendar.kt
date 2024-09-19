@@ -23,55 +23,61 @@ class MainActivity_calendar : AppCompatActivity() {
   private lateinit var adapter: CalendarAdapter
   private val travelList = mutableListOf<TravelData>()  // 여행 데이터 리스트
 
-
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = ActivityMainCalendarBinding.inflate(layoutInflater)
     setContentView(binding.root)
 
-
     // RecyclerView 설정
-    binding.recyclerViewCalendar.layoutManager = LinearLayoutManager(this)
-    adapter = CalendarAdapter(travelList) { travelData ->
-      // 아이템 클릭 시 처리할 내용
-    }
+    setupRecyclerView()
+
     // CalendarFragment 추가
     supportFragmentManager.beginTransaction()
       .replace(R.id.fragment_container, CalendarFragment())
       .commit()
 
-    // CalendarView에 오늘 날짜 설정
-    val today = Calendar.getInstance() // 현재 날짜 및 시간 가져오기
-    binding.calendarView.date = today.timeInMillis  // CalendarView에 현재 날짜 설정
-
-    // 선택한 날짜를 출력하는 예시
-    binding.calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-      val selectedDate = "$year-${month + 1}-$dayOfMonth"
-      // 선택한 날짜를 처리하는 코드 작성
-      println("선택한 날짜: $selectedDate")
-    }
-    binding.recyclerViewCalendar.adapter = adapter
+    // CalendarView에 오늘 날짜(2024-09-19) 설정
+    setSpecificDateToCalendarView(2024, 9, 19)
 
     // confirmButton 클릭 시 액티비티 종료
     binding.confirmButton.setOnClickListener {
       finish()  // 액티비티 종료
     }
 
-    // 서버에서 전체 데이터를 가져와 어댑터에 반영
+    // 서버에서 데이터를 가져와 RecyclerView에 반영
     fetchTravelData()
+  }
+
+  // RecyclerView 설정 함수
+  private fun setupRecyclerView() {
+    binding.recyclerViewCalendar.layoutManager = LinearLayoutManager(this)
+    adapter = CalendarAdapter(travelList) { travelData ->
+      // 아이템 클릭 시 처리할 내용 추가 가능
+    }
+    binding.recyclerViewCalendar.adapter = adapter
+  }
+
+  // 특정 날짜를 CalendarView에 설정하는 함수 (예: 2024년 9월 19일)
+  private fun setSpecificDateToCalendarView(year: Int, month: Int, day: Int) {
+    val calendar = Calendar.getInstance()
+    calendar.set(year, month - 1, day)  // Calendar에서 월은 0부터 시작하므로 1을 빼야 함
+    binding.calendarView.date = calendar.timeInMillis
+
+    // 날짜 선택 리스너 설정
+    binding.calendarView.setOnDateChangeListener { _, selectedYear, selectedMonth, selectedDayOfMonth ->
+      val selectedDate = "$selectedYear-${selectedMonth + 1}-$selectedDayOfMonth"
+      Log.d("MainActivity_calendar", "선택한 날짜: $selectedDate")
+    }
   }
 
   // 서버에서 모든 여행 데이터를 가져오는 함수
   private fun fetchTravelData() {
     Client.retrofit.findAll().enqueue(object : Callback<List<TravelData>> {
-      override fun onResponse(
-        call: Call<List<TravelData>>,
-        response: Response<List<TravelData>>
-      ) {
+      override fun onResponse(call: Call<List<TravelData>>, response: Response<List<TravelData>>) {
         if (response.isSuccessful) {
           val travelDataList = response.body()
-          if (travelDataList != null) {
-            adapter.updateList(travelDataList)  // 어댑터에 데이터 반영
+          travelDataList?.let {
+            adapter.updateList(it)  // 어댑터에 데이터 반영
           }
         } else {
           Log.e("MainActivity_calendar", "서버 응답 실패: ${response.errorBody()}")
