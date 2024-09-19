@@ -35,18 +35,23 @@ public class TravelService {
         //******************************************************************** 삭제금지
         
 //        날짜 계산 로직 짬
+//        현재 날짜를 구함
 //        LocalDate nowDate = LocalDate.now();
 //
+//        travels 리스트에서 각 TravelEntity의 시작 날짜를 가져와 D-Day를 계산
 //        for (TravelEntity travel : travels) {
 //            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //            LocalDate startDate = LocalDate.parse(travel.getStartDate(), formatter);
 //
+//        // 시작 날짜와 현재 날짜 사이의 일수를 계산하여 D-Day 값을 설정
 //            Long days = ChronoUnit.DAYS.between(startDate, nowDate);
 //            travel.setDDay(days);
 //        }
-////
+//
+//        계산된 D-Day 값을 저장
 //        travelRepository.saveAll(travels);
 //
+//        D-Day 포맷팅 함수 (양수면 '+' 표시, 음수면 그냥 출력)
 //        public String formatDDay(Long days) {
 //        if (days > 0) {
 //            return "+" + days.toString();
@@ -56,6 +61,7 @@ public class TravelService {
 //    }
 //
 //        ************************************************************************* 삭제금지
+//        조회한 여행 리스트를 반환
         return travels;
     }
 
