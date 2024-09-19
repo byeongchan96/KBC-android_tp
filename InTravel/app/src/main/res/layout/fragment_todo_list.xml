@@ -26,7 +26,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="#FDF79B"
+            android:background="@drawable/item_radius"
             android:text="+"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"

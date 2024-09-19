@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <!-- Reds -->
+  <color name="red100">#E53935</color>
+  <color name="red200">#FF7043</color>
+
+  <!-- Oranges -->
+  <color name="orange100">#FB8C00</color>
+  <color name="orange200">#FFB300</color>
+
+  <!-- Yellows -->
+  <color name="yellow100">#FDD835</color>
+  <color name="yellow200">#F4E242</color>
+
+  <!-- Greens -->
+  <color name="green400">#43A047</color>
+  <color name="green200">#00BFA5</color>
+
+  <!-- Blues -->
+  <color name="blue100">#1E88E5</color>
+  <color name="blue200">#42A5F5</color>
+
+  <!-- Purples -->
+  <color name="purple100">#AB47BC</color>
+  <color name="purple200">#8E24AA</color>
+
+  <!-- Browns & Greys -->
+  <color name="brown100">#8D6E63</color>
+  <color name="grey300">#BDBDBD</color>
+  <color name="grey200">#757575</color>
+
+  <!-- Additional colors -->
   <color name="black">#FF000000</color>
   <color name="white">#FFFFFFFF</color>
   <color name="gray500">#6B7280</color>
-  <color name="yellow200">#FEF3C7</color>
+  <color name="gray100">#E7E4E4</color>
   <color name="yellow400">#FACC15</color>
-  <color name="gray100">#F8F8F8</color>
+  <color name="green100">#78AA00</color>
+  <color name="pink100">#FF5675</color>
 </resources>

@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -15,6 +16,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.content.FileProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -26,6 +28,7 @@ import com.example.intravel.databinding.ActivityMainBinding
 import com.example.intravel.databinding.CustomDdayBinding
 import com.example.intravel.databinding.FragmentGalleryBinding
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 import java.text.SimpleDateFormat
@@ -328,9 +331,19 @@ class MainActivity : AppCompatActivity() {
       }
 
     }
+    // iconCalendar 클릭 시 MainActivity_calendar로 이동
+    binding.iconCalendar.setOnClickListener {
+      // 인텐트를 생성하여 MainActivity_calendar로 이동
+      val intent = Intent(this@MainActivity, MainActivity_calendar::class.java)
 
+      // 필요 시 데이터를 추가할 수 있음 (예시)
+      // intent.putExtra("key", value)
 
+      // 액티비티 시작
+      startActivity(intent)
 
-  }// onCreate
-
+      // 애니메이션 효과 적용 (선택 사항)
+      overridePendingTransition(R.anim.rightin_activity, R.anim.not_move_activity)
+    }
+  }
 }

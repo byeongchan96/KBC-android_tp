@@ -67,7 +67,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:text="CANCEL"
-        android:background="#FDF79B"
+        android:background="@drawable/radius"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mContent" />
 
@@ -78,7 +78,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:text="OK"
-        android:background="#FBEA04"
+        android:background="@drawable/item_radius"
         app:layout_constraintEnd_toStartOf="@+id/btnMemoCancel"
         app:layout_constraintTop_toBottomOf="@+id/mContent" />
 

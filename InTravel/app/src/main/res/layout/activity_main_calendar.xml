@@ -3,73 +3,59 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainActivity_calendar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     tools:context=".MainActivity_calendar">
 
-    <!-- 현재 시간을 표시하는 TextView -->
+    <!-- 상단 툴바 또는 제목 -->
+    <!-- CalendarView -->
+
+    <!-- Confirm Button -->
     <TextView
-        android:id="@+id/rel_time"
+        android:id="@+id/calendarTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="현재 시간 12:00"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="16dp"
+        android:text="여행 일정"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- CalendarView: 날짜 선택 가능 -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rel_time" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- 확인 버튼 -->
     <Button
-        android:id="@+id/button"
+        android:id="@+id/confirmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="확인"
-        app:layout_constraintTop_toBottomOf="@id/calendarView"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calendarView" />
 
-    <!-- TextView와 RecyclerView를 포함한 LinearLayout -->
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <!-- RecyclerView for displaying travel logs -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCalendar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <!-- 선택된 날짜를 표시할 TextView -->
-        <TextView
-            android:id="@+id/to_day"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="선택된 날짜:"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"
-            android:layout_marginBottom="8dp" />
-
-        <!-- 날짜에 맞는 데이터를 표시할 RecyclerView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-    </LinearLayout>
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirmButton"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-26dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
